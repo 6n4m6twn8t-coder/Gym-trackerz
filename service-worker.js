@@ -1,4 +1,4 @@
-const CACHE="gym-tracker-v8";
+const CACHE="gym-tracker-v9";
 const ASSETS=[
   "./",
   "./index.html",
@@ -8,11 +8,13 @@ const ASSETS=[
   "./js/storage.js",
   "./data/exercises.js",
   "./data/programs.js",
-  "./data/animation-assets/incline-clean-c1.js",
-  "./data/animation-assets/incline-clean-c2.js",
-  "./data/animation-assets/incline-clean-c3.js",
-  "./data/animation-assets/incline-clean-c4.js",
-  "./data/animation-assets/incline-db-press-clean.js",
+  "./data/animation-assets/incline-stable-v9-c1.js",
+  "./data/animation-assets/incline-stable-v9-c2.js",
+  "./data/animation-assets/incline-stable-v9-c3a.js",
+  "./data/animation-assets/incline-stable-v9-c3b.js",
+  "./data/animation-assets/incline-stable-v9-c4a.js",
+  "./data/animation-assets/incline-stable-v9-c4b.js",
+  "./data/animation-assets/incline-db-press-stable-v9.js",
   "./manifest.webmanifest",
   "./animations/incline-db-press.svg",
   "./animations/flat-db-press.svg",
