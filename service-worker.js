@@ -1,0 +1,5 @@
+const CACHE="gym-tracker-v1";
+const ASSETS=["./","./index.html","./css/styles.css","./js/app.js","./js/storage.js","./data/exercises.js","./data/programs.js","./manifest.webmanifest","./animations/press.svg","./animations/fly.svg","./animations/raise.svg","./animations/arms.svg","./animations/row.svg","./animations/squat.svg","./animations/hinge.svg","./animations/abs.svg","./animations/calf.svg"];
+self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting()});
+self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));self.clients.claim()});
+self.addEventListener("fetch",event=>{if(event.request.method!=="GET")return;event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));return response}))) });
