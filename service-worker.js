@@ -1,4 +1,4 @@
-const CACHE="gym-tracker-v9";
+const CACHE="gym-tracker-v10";
 const ASSETS=[
   "./",
   "./index.html",
@@ -15,6 +15,11 @@ const ASSETS=[
   "./data/animation-assets/incline-stable-v9-c4a.js",
   "./data/animation-assets/incline-stable-v9-c4b.js",
   "./data/animation-assets/incline-db-press-stable-v9.js",
+  "./data/animation-assets/flat-db-press-demo-v10.js",
+  "./data/animation-assets/cable-fly-demo-v10.js",
+  "./data/animation-assets/lateral-raise-demo-v10.js",
+  "./data/animation-assets/rope-pushdown-demo-v10.js",
+  "./data/animation-assets/cable-crunch-demo-v10.js",
   "./manifest.webmanifest",
   "./animations/incline-db-press.svg",
   "./animations/flat-db-press.svg",
