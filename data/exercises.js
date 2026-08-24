@@ -1,7 +1,7 @@
-import { inclineDbPressClean } from "./animation-assets/incline-db-press-clean.js";
+import { inclineDbPressStableV9 } from "./animation-assets/incline-db-press-stable-v9.js";
 
 export const EXERCISES = {
-  "incline-db-press": { id:"incline-db-press", name:"Incline Dumbbell Press", muscle:"Chest", equipment:"Dumbbells + incline bench", animation:"./animations/incline-db-press.svg", demoAnimation:inclineDbPressClean, cues:["Set the bench around 20–35°.","Shoulder blades down and back.","Lower under control, then press up and slightly in."] },
+  "incline-db-press": { id:"incline-db-press", name:"Incline Dumbbell Press", muscle:"Chest", equipment:"Dumbbells + incline bench", animation:"./animations/incline-db-press.svg", demoAnimation:inclineDbPressStableV9, cues:["Set the bench around 20–35°.","Shoulder blades down and back.","Lower under control, then press up and slightly in."] },
   "flat-db-press": { id:"flat-db-press", name:"Flat Dumbbell Press", muscle:"Chest", equipment:"Dumbbells + bench", animation:"./animations/flat-db-press.svg", cues:["Keep feet planted.","Elbows slightly tucked, not flared straight out.","Pause briefly near the bottom and press smoothly."] },
   "cable-fly": { id:"cable-fly", name:"Cable Fly", muscle:"Chest", equipment:"Cable station", animation:"./animations/cable-fly.svg", cues:["Keep a soft bend in the elbows.","Bring the upper arms across the body.","Use a controlled stretch; do not chase heavy weight."] },
   "db-lateral-raise": { id:"db-lateral-raise", name:"Dumbbell Lateral Raise", muscle:"Shoulders", equipment:"Dumbbells", animation:"./animations/db-lateral-raise.svg", cues:["Lead with the elbows.","Raise to around shoulder height.","Keep momentum low and control the lowering phase."] },
