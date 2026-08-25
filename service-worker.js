@@ -1,4 +1,4 @@
-const CACHE="gym-tracker-v12";
+const CACHE="gym-tracker-v11";
 const ASSETS=[
   "./",
   "./index.html",
@@ -6,7 +6,6 @@ const ASSETS=[
   "./js/bootstrap-v7.js",
   "./js/app.js",
   "./js/session-timer.js",
-  "./js/anatomy-enhancer.js",
   "./js/storage.js",
   "./data/exercises.js",
   "./data/programs.js",
