@@ -1,31 +1,26 @@
-async function boot(){
-  // Boot the core app first so navigation and workout controls are never blocked
-  // by a service-worker update or an optional enhancer.
-  try{
-    await import("./app.js?v=9");
-  }catch(error){
-    console.error("Gym Tracker core failed to load",error);
-    return;
-  }
-
-  // Optional enhancements should never be able to stop the core tracker.
-  Promise.allSettled([
-    import("./session-timer.js?v=2"),
-    import("./anatomy-enhancer.js?v=2")
-  ]).then(results=>{
-    results.forEach(result=>{
-      if(result.status==="rejected") console.warn("Optional enhancement skipped",result.reason);
-    });
+async function waitForActivation(worker){
+  if(!worker || worker.state === "activated") return;
+  await new Promise(resolve=>{
+    const done=()=>{if(worker.state === "activated" || worker.state === "redundant"){worker.removeEventListener("statechange",done);resolve();}};
+    worker.addEventListener("statechange",done);
+    done();
   });
+}
 
-  // Refresh the offline cache in the background only. Never wait for a new
-  // worker to activate, because iOS can keep it in a waiting state while the
-  // current page is still open.
+async function boot(){
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"none"})
-      .then(registration=>registration.update().catch(()=>{}))
-      .catch(error=>console.warn("Service worker refresh skipped",error));
+    try{
+      const registration=await navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"none"});
+      await registration.update();
+      if(registration.installing) await waitForActivation(registration.installing);
+      if(registration.waiting) await waitForActivation(registration.waiting);
+      await navigator.serviceWorker.ready;
+    }catch(error){
+      console.warn("Service worker refresh skipped",error);
+    }
   }
+  await import("./session-timer.js?v=1");
+  await import("./app.js?v=8");
 }
 
 boot();
