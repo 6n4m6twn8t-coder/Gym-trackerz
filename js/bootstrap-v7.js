@@ -19,7 +19,8 @@ async function boot(){
       console.warn("Service worker refresh skipped",error);
     }
   }
-  await import("./app.js?v=7");
+  await import("./session-timer.js?v=1");
+  await import("./app.js?v=8");
 }
 
 boot();
