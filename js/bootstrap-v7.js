@@ -21,6 +21,7 @@ async function boot(){
   }
   await import("./session-timer.js?v=1");
   await import("./app.js?v=8");
+  await import("./anatomy-enhancer.js?v=1");
 }
 
 boot();
